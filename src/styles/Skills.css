@@ -1,61 +1,40 @@
-// src/components/Skills.js
-import React from 'react';
-import { motion } from 'framer-motion';
-import '../styles/Skills.css';
-
-const skillsData = [
-  {
-    category: 'Frontend',
-    skills: ['React', 'HTML', 'CSS', 'JavaScript', 'Redux'],
-    icons: ['react', 'html5', 'css3-alt', 'js-square', 'redux']
-  },
-  {
-    category: 'Backend',
-    skills: ['Node.js', 'Express', 'MongoDB', 'MySQL'],
-    icons: ['node', 'node', 'database', 'database']
-  },
-  {
-    category: 'Tools & Others',
-    skills: ['Git', 'Docker', 'Figma', 'VS Code', 'NPM'],
-    icons: ['git', 'docker', 'figma', 'code', 'npm']
+#skills {
+    background-color: #f0f0f0;
+    padding: 50px;
+    text-align: center;
   }
-];
-
-const Skills = () => {
-  return (
-    <section id="skills">
-      <h2>Skills</h2>
-      <div className="skills-container">
-        {skillsData.map((skillCategory, index) => (
-          <motion.div
-            key={index}
-            className="skill-category"
-            initial={{ opacity: 0 }}   // Starts off invisible
-            animate={{ opacity: 1 }}   // Fades in to full opacity
-            transition={{ duration: 1 }} // Duration of the animation
-            whileInView={{ opacity: 1, x: 0 }} // This triggers when the section comes into view
-            viewport={{ once: true }}  // This ensures the animation happens only once when the section is in view
-          >
-            <h3>{skillCategory.category}</h3>
-            <ul>
-              {skillCategory.skills.map((skill, idx) => (
-                <motion.li
-                  key={idx}
-                  className="skill-item"
-                  initial={{ opacity: 0, x: -100 }} // Start with items off-screen
-                  animate={{ opacity: 1, x: 0 }} // Slide in and fade in
-                  transition={{ duration: 0.5, delay: idx * 0.2 }} // Staggered animation
-                >
-                  <i className={fab fa-${skillCategory.icons[idx]} skill-icon} />
-                  {skill}
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-export default Skills;
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .skill-category {
+    width: 30%;
+    margin: 20px;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .skill-item {
+    list-style: none;
+    font-size: 1.2rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+  }
+  
+  .skill-icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .skill-category {
+      width: 100%;
+    }
+  }
