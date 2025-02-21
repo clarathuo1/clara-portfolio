@@ -1,0 +1,16 @@
+#home {
+  text-align: center;
+  padding: 50px;
+}
+
+#home h1 {
+  color: #333;
+}
+
+.profile-image {
+  width: 250px;  /* Adjust the size */
+  height: 250px; /* Adjust the size */
+  
+  object-fit: cover; /* Ensures the image doesn't get distorted */
+  margin-top: 20px; /* Add space above the image */
+}
